@@ -1,0 +1,23 @@
+-------------------------------------------------------------------------------
+Test set: Reqresin
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 1, Errors: 3, Skipped: 0, Time elapsed: 7.266 s <<< FAILURE! - in Reqresin
+Reqresin.Success Get Single User  Time elapsed: 5.845 s  <<< ERROR!
+java.lang.NullPointerException
+
+Reqresin.Login Valid Data  Time elapsed: 0.734 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <400>.
+
+
+Reqresin.Login Without Password  Time elapsed: 0.625 s  <<< ERROR!
+java.lang.NullPointerException
+
+Reqresin.Success Register with Valid Data  Time elapsed: 0.062 s  <<< ERROR!
+java.lang.IllegalArgumentException: 
+Don't know how to encode {"password":"pistol","email":"eve.holt@reqres.in"} as a byte stream.
+
+Please use EncoderConfig (EncoderConfig#encodeContentTypeAs) to specify how to serialize data for this content-type.
+For example: "given().config(RestAssured.config().encoderConfig(encoderConfig().encodeContentTypeAs("app/json", ContentType.TEXT))). .."
+

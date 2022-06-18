@@ -1,0 +1,4 @@
+api\stepdef\reqresin\reqresinstepdef.class
+org\example\AppTest.class
+api\service\reqresin\Reqresin.class
+CucumberTest.class
