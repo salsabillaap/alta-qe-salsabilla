@@ -1,51 +1,40 @@
 package api.service.reqresin;
 
-import io.restassured.RestAssured;
-import io.restassured.response.Response;
 import net.serenitybdd.rest.SerenityRest;
-import org.json.JSONObject;
 
 import java.io.File;
 
 public class Reqresin {
 
-    private static final String REQRESIN_BASEURL = "https://reqres.in";
+    public static int userid;
+    private static final String REQRESIN_BASEURL = "https://reqres.in/";
 
-    private String setBodyJson() {
-        JSONObject bodyJson = new JSONObject();
-
-        bodyJson.put("email", "eve.holt@reqres.in");
-        bodyJson.put("password", "pistol");
-
-        return bodyJson.toString();
+    public void getSingleUser() {
+        SerenityRest.get( REQRESIN_BASEURL + "api/users/" + userid);
     }
-    public static Response response;
 
-    public void postLogin() {
+    public void postLogin(File data) {
         SerenityRest.given()
-                .header("Content-type", "app/json")
-                .body(setBodyJson())
+                .header("Content-type", "application/json")
+                .body(data)
                 .post(REQRESIN_BASEURL + "api/login");
     }
 
-    public void getSingleUser() {
+    public void postRegister(File data) {
         SerenityRest.given()
-                .get(REQRESIN_BASEURL + "/api/users/2");
+                .header("Content-type", "application/json")
+                .body(data)
+                .post(REQRESIN_BASEURL + "api/register");
     }
 
-    public void postLoginWithParam(String jsonPath) {
-        File bodyJson = new File(String.format("src/test/resources/payload/%s", jsonPath));
-
+    public void putUpdate(File data) {
         SerenityRest.given()
-                .header("Content-type", "app/json")
-                .body(bodyJson)
-                .post(REQRESIN_BASEURL + "/api/login");
+                .header("Content-type", "application/json")
+                .body(data)
+                .put(REQRESIN_BASEURL + "api/users/" + userid);
     }
 
-    public void postRegister() {
-        SerenityRest.given()
-                .header("Content-type", "app/json")
-                .body(setBodyJson())
-                .post(REQRESIN_BASEURL + "/api/register");
+    public void deleteUser() {
+        SerenityRest.delete(REQRESIN_BASEURL + "api/users/" + userid);
     }
 }

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="2" name="Reqresin" skipped="0" tests="6" time="15.65" timestamp="2022-06-20 01:13:06"><testcase name="Success Get Single User"/><testcase name="Login Valid Data"><failure message="1 expectation failed.&#10;Response body doesn't match expectation.&#10;Expected: The content to match the given JSON schema.&#10;error: object has missing required properties ([&quot;token&quot;])&#10;    level: &quot;error&quot;&#10;    schema: {&quot;loadingURI&quot;:&quot;file:/C:/Users/Lenovo/qebatch4/RestAssuredDemo/target/test-classes/schema/success-login.json#&quot;,&quot;pointer&quot;:&quot;&quot;}&#10;    instance: {&quot;pointer&quot;:&quot;&quot;}&#10;    domain: &quot;validation&quot;&#10;    keyword: &quot;required&quot;&#10;    required: [&quot;token&quot;]&#10;    missing: [&quot;token&quot;]&#10;&#10;  Actual: {&quot;email&quot;:&quot;eve.holt@reqres.in&quot;,&quot;password&quot;:&quot;cityslicka&quot;,&quot;updatedAt&quot;:&quot;2022-06-19T18:13:14.815Z&quot;}&#10;" type="java.lang.AssertionError">1 expectation failed.
+Response body doesn't match expectation.
+Expected: The content to match the given JSON schema.
+error: object has missing required properties (["token"])
+    level: "error"
+    schema: {"loadingURI":"file:/C:/Users/Lenovo/qebatch4/RestAssuredDemo/target/test-classes/schema/success-login.json#","pointer":""}
+    instance: {"pointer":""}
+    domain: "validation"
+    keyword: "required"
+    required: ["token"]
+    missing: ["token"]
+
+  Actual: {"email":"eve.holt@reqres.in","password":"cityslicka","updatedAt":"2022-06-19T18:13:14.815Z"}
+</failure><system-err>1 expectation failed.
+Response body doesn't match expectation.
+Expected: The content to match the given JSON schema.
+error: object has missing required properties (["token"])
+    level: "error"
+    schema: {"loadingURI":"file:/C:/Users/Lenovo/qebatch4/RestAssuredDemo/target/test-classes/schema/success-login.json#","pointer":""}
+    instance: {"pointer":""}
+    domain: "validation"
+    keyword: "required"
+    required: ["token"]
+    missing: ["token"]
+
+  Actual: {"email":"eve.holt@reqres.in","password":"cityslicka","updatedAt":"2022-06-19T18:13:14.815Z"}
+&#13;
+io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:674)&#13;
+io.restassured.internal.ResponseSpecificationImpl.body(ResponseSpecificationImpl.groovy:98)&#13;
+io.restassured.internal.ValidatableResponseOptionsImpl.body(ValidatableResponseOptionsImpl.java:238)&#13;
+io.restassured.internal.ValidatableResponseImpl.super$2$body(ValidatableResponseImpl.groovy)&#13;
+groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:323)&#13;
+groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1268)&#13;
+io.restassured.internal.ValidatableResponseImpl.body(ValidatableResponseImpl.groovy:293)&#13;
+io.restassured.internal.ValidatableResponseImpl.body(ValidatableResponseImpl.groovy)&#13;
+api.stepdef.reqresin.reqresinstepdef.lambda$responseBodyJsonSchemaIs$1(reqresinstepdef.java:31)&#13;
+net.serenitybdd.rest.SerenityRest.restAssuredThat(SerenityRest.java:626)&#13;
+api.stepdef.reqresin.reqresinstepdef.responseBodyJsonSchemaIs(reqresinstepdef.java:31)&#13;
+✽.response body json schema is "success-login.json"(file:///C:/Users/Lenovo/qebatch4/RestAssuredDemo/src/test/resources/features/reqresin/reqresin.feature:14)&#13;
+</system-err></testcase><testcase name="Login Without Password"/><testcase name="Success Register with Valid Data"><failure message="1 expectation failed.&#10;Response body doesn't match expectation.&#10;Expected: The content to match the given JSON schema.&#10;error: object has missing required properties ([&quot;id&quot;,&quot;token&quot;])&#10;    level: &quot;error&quot;&#10;    schema: {&quot;loadingURI&quot;:&quot;file:/C:/Users/Lenovo/qebatch4/RestAssuredDemo/target/test-classes/schema/register.json#&quot;,&quot;pointer&quot;:&quot;&quot;}&#10;    instance: {&quot;pointer&quot;:&quot;&quot;}&#10;    domain: &quot;validation&quot;&#10;    keyword: &quot;required&quot;&#10;    required: [&quot;id&quot;,&quot;token&quot;]&#10;    missing: [&quot;id&quot;,&quot;token&quot;]&#10;&#10;  Actual: {&quot;email&quot;:&quot;eve.holt@reqres.in&quot;,&quot;password&quot;:&quot;pistol&quot;,&quot;updatedAt&quot;:&quot;2022-06-19T18:13:19.032Z&quot;}&#10;" type="java.lang.AssertionError">1 expectation failed.
+Response body doesn't match expectation.
+Expected: The content to match the given JSON schema.
+error: object has missing required properties (["id","token"])
+    level: "error"
+    schema: {"loadingURI":"file:/C:/Users/Lenovo/qebatch4/RestAssuredDemo/target/test-classes/schema/register.json#","pointer":""}
+    instance: {"pointer":""}
+    domain: "validation"
+    keyword: "required"
+    required: ["id","token"]
+    missing: ["id","token"]
+
+  Actual: {"email":"eve.holt@reqres.in","password":"pistol","updatedAt":"2022-06-19T18:13:19.032Z"}
+</failure><system-err>1 expectation failed.
+Response body doesn't match expectation.
+Expected: The content to match the given JSON schema.
+error: object has missing required properties (["id","token"])
+    level: "error"
+    schema: {"loadingURI":"file:/C:/Users/Lenovo/qebatch4/RestAssuredDemo/target/test-classes/schema/register.json#","pointer":""}
+    instance: {"pointer":""}
+    domain: "validation"
+    keyword: "required"
+    required: ["id","token"]
+    missing: ["id","token"]
+
+  Actual: {"email":"eve.holt@reqres.in","password":"pistol","updatedAt":"2022-06-19T18:13:19.032Z"}
+&#13;
+io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:674)&#13;
+io.restassured.internal.ResponseSpecificationImpl.body(ResponseSpecificationImpl.groovy:98)&#13;
+io.restassured.internal.ValidatableResponseOptionsImpl.body(ValidatableResponseOptionsImpl.java:238)&#13;
+io.restassured.internal.ValidatableResponseImpl.super$2$body(ValidatableResponseImpl.groovy)&#13;
+groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:323)&#13;
+groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1268)&#13;
+io.restassured.internal.ValidatableResponseImpl.body(ValidatableResponseImpl.groovy:293)&#13;
+io.restassured.internal.ValidatableResponseImpl.body(ValidatableResponseImpl.groovy)&#13;
+api.stepdef.reqresin.reqresinstepdef.lambda$responseBodyJsonSchemaIs$1(reqresinstepdef.java:31)&#13;
+net.serenitybdd.rest.SerenityRest.restAssuredThat(SerenityRest.java:626)&#13;
+api.stepdef.reqresin.reqresinstepdef.responseBodyJsonSchemaIs(reqresinstepdef.java:31)&#13;
+✽.response body json schema is "register.json"(file:///C:/Users/Lenovo/qebatch4/RestAssuredDemo/src/test/resources/features/reqresin/reqresin.feature:25)&#13;
+</system-err></testcase><testcase name="Update User Data"/><testcase name="Delete User Data"/></testsuite>

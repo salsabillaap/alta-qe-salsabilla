@@ -1,0 +1,5 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Reqresin","Success Get Single User","SUCCESS","2022-06-20T01:13:06.112+07:00[Asia/Bangkok]","0.0","6.3"
+"Reqresin","Login Without Password","SUCCESS","2022-06-20T01:13:15.005+07:00[Asia/Bangkok]","0.0","2.22"
+"Reqresin","Update User Data","SUCCESS","2022-06-20T01:13:19.076+07:00[Asia/Bangkok]","0.0","2.15"
+"Reqresin","Delete User Data","SUCCESS","2022-06-20T01:13:21.234+07:00[Asia/Bangkok]","0.0","0.59"

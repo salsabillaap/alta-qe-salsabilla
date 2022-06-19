@@ -2,51 +2,27 @@ package api.stepdef.reqresin;
 
 import api.service.reqresin.Reqresin;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.restassured.module.jsv.JsonSchemaValidator;
-import org.junit.Assert;
 
-import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchema;
+import java.io.File;
+
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
-import static org.hamcrest.MatcherAssert.assertThat;
 
 public class reqresinstepdef {
 
     Reqresin reqresin = new Reqresin();
-    @When("user send POST login request to reqresin with body json {string}")
-    public void userSendPOSTLoginRequestToReqresinWithBodyJson(String jsonPath) {
-        reqresin.postLoginWithParam(jsonPath);
-    }
-
-    @Then("response status code should be {int}")
-    public void responseStatusCodeShouldBe(int expectedStatus) {
-//        Assert.assertEquals(expectedStatus, Reqresin.response.getStatusCode());
-        restAssuredThat(response -> response.statusCode(expectedStatus));
-    }
-
-    @And("response body with jsonPath {string} should have type String")
-    public void responseBodyWithJsonPathShouldHaveTypeString(String jsonPath) {
-
-        assert Reqresin.response.body().jsonPath().get(jsonPath) instanceof String;
-    }
-
-    @When("user send GET Users request to reqresin")
-    public void userSendGETUsersRequestToReqresin() {
+    @When("user send GET Single User with id {int}")
+    public void userSendGETSingleUserWithId(int id) {
+        Reqresin.userid =  id;
         reqresin.getSingleUser();
     }
 
-    @And("response body {string} should be {int}")
-    public void responseBodyShouldBe(String id, int expected) {
-        int output = Reqresin.response.jsonPath().get(id);
-        Assert.assertEquals(expected, output);
-    }
-
-    @And("response body {string} should be {string}")
-    public void responseBodyShouldBe(String email, String expectedEmail) {
-        String outputEmail = Reqresin.response.jsonPath().get(email);
-        Assert.assertEquals(expectedEmail, outputEmail);
+    @Then("response status code should be {int}")
+    public void responseStatusCodeShouldBe(int statusCode) {
+        restAssuredThat(response -> response.statusCode(statusCode));
     }
 
     @And("response body json schema is {string}")
@@ -55,15 +31,23 @@ public class reqresinstepdef {
         restAssuredThat(response -> response.assertThat().body(matchesJsonSchemaInClasspath(path)));
     }
 
-    @When("user send POST Register request to reqresin")
-    public void userSendPOSTRegisterRequestToReqresin() {
-        reqresin.postRegister();
+    @Given("user id is {int}")
+    public void userIdIs(int id) {
+        Reqresin.userid = id;
     }
 
-    @And("response body {string} should have type String")
-    public void responseBodyShouldHaveTypeString(String jsonPath) {
-        assert Reqresin.response.body().jsonPath().get(jsonPath) instanceof String;
+    @When("user send POST {string} to reqresin with body json {string}")
+    public void userSendPOSTToReqresinWithBodyJson(String arg0, String dataObj) {
+        String path = "src/test/resources/payload/" + dataObj;
+        File file = new File(String.format(path));
+        reqresin.postLogin(file);
+        reqresin.postRegister(file);
+        reqresin.putUpdate(file);
     }
 
-
+    @When("user send DELETE to reqresin with user id is {int}")
+    public void userSendDELETEToReqresinWithUserIdIs(int id) {
+        Reqresin.userid = id;
+        reqresin.deleteUser();
+    }
 }

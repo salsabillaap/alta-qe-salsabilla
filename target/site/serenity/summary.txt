@@ -1,8 +1,8 @@
-Serenity report generated 18-06-2022 17:11
-0 test scenarios 
+Serenity report generated 20-06-2022 01:13
+6 test scenarios 
 
-Passed:             0
-Failed:             0
+Passed:             4
+Failed:             2
 Failed with errors: 0
 Compromised:        0
 Pending:            0
