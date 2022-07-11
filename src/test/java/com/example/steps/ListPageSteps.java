@@ -10,4 +10,13 @@ public class ListPageSteps extends BaseTest {
     listPage.swipeList();
   }
 
+  @And("user longpress one of the list")
+  public void userLongpressOneOfTheList() {
+    listPage.longpressList();
+  }
+
+  @And("user tap multiple times one of the list")
+  public void userTapMultipleTimesOneOfTheList() {
+    listPage.tapMultiple();
+  }
 }

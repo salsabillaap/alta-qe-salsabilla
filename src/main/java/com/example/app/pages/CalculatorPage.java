@@ -19,6 +19,50 @@ public class CalculatorPage extends BasePageObject {
     return getText(MobileBy.xpath("//android.view.ViewGroup[@resource-id='com.isl.simpleapp:id/toolbar']//android.widget.TextView"));
   }
 
+  public void inputAngkaSatu(int satu){
+    type(MobileBy.id("et_1"), String.valueOf(satu));
+  }
+
+  public void inputAngkaDua(int dua){
+    type(MobileBy.id("et_2"), String.valueOf(dua));
+  }
+
+  public void clickChooseOpr(){
+    click(MobileBy.id("spinner_1"));
+  }
+
+  public void chooseOpr(String operator){
+    click(MobileBy.xpath("//*[@text=\""+operator+"\"]"));
+  }
+
+  public void clickEquals(){
+    click(MobileBy.id("acb_calculate"));
+  }
+
+  public String getResult(){
+    return getText(MobileBy.id("tv_result"));
+  }
+
+  public boolean checkEqualsButton(){
+    return isEnabled(MobileBy.id("acb_calculate"));
+  }
+
+  public void inputNegativeAngkaSatu(String one){
+    type(MobileBy.id("et_1"), one);
+  }
+
+  public void inputNegativeAngkaDua(String two){
+    type(MobileBy.id("et_2"), two);
+  }
+
+  public String getValueFieldAngkaSatu(){
+    return getText(MobileBy.id("et_1"));
+  }
+
+  public String getValueFieldAngkaDua(){
+    return getText(MobileBy.id("et_2"));
+  }
+
   public boolean checkHamburgerBtnAppear() {
 //    By locator = MobileBy.AccessibilityId("Open navigation drawer");
 //    AndroidElement hamburgerBtn = driver.findElement(locator);
